@@ -5,6 +5,13 @@ Scripts that reproduce the numerical results of
 > Y. Javanmard and S. Kazemian, *Boundary-Aware QFT Block-Encoding of Fractional
 > Laplacians*, arXiv:2605.16749.
 
+![Summary of the padding error, its grid-size scaling, and the solver-relevant error](summary.png)
+
+*(a) The boundary error of the zero-padded QFT block falls with the padding ratio at the
+rate predicted by Theorem 2. (b) Already at minimal padding M = 2N it decays as 1/N for
+α ≥ 1 and as N^(-1/2) for α = 1/2. (c) The error relevant for inverting the operator does
+not grow with the grid size N at fixed M/N. Reproduce with `python make_summary_figure.py`.*
+
 All computations are classical linear algebra in double precision (Python 3.10+,
 see `requirements.txt`). Install with `pip install -r requirements.txt`.
 
@@ -14,6 +21,7 @@ see `requirements.txt`). Install with `pip install -r requirements.txt`.
 | `padding_1d_quadrature_verified.py` | Table III: 1D residual at M = 2N and register size m for ε = 1e-2, 1e-3, 1e-4 | `python padding_1d_quadrature_verified.py --outdir results` (`--quick` for a short run) |
 | `solver_and_normalization.py` | Table IV: inversion perturbation ‖A⁻¹E‖₂; normalization ratio Γ/λ_max of the exact 2N circulant (Sec. IV.A) | `python solver_and_normalization.py` |
 | `verify_3d.py` | Table V: 3D residuals with two reference grids | `python verify_3d.py --mode quick --output results/3d.csv` |
+| `make_summary_figure.py` | Summary figure above (`summary.png`) | `python make_summary_figure.py` |
 | `test_comparator_lcu.py` | Appendix F: exact comparator/LCU block-encoding of the 1D α = 1 symbol | `python test_comparator_lcu.py` |
 
 ## Notes
