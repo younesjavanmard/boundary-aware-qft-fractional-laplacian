@@ -1,5 +1,18 @@
 # Boundary-aware QFT block-encoding of fractional Laplacians: code
 
+A quantum Fourier transform (QFT) applies the fractional Laplacian with a simple,
+closed-form symbol |ξ|^α, but only with periodic boundary conditions. On a bounded
+domain with zero exterior data the target is instead a Toeplitz matrix. We show
+that zero-padding the register from N to M points, applying the same QFT symbol
+oracle, and compressing back recovers this open-boundary operator up to an
+explicitly bounded error. In d dimensions that error is
+C(N/M² + N^d/M^(d+α)) on the block-encoding scale, so already at the minimal
+size M = 2N it decays as N^(-min(1,α)). Compared with an exact circulant
+embedding, whose eigenvalues must be precomputed and loaded from a table of
+(2N)^d entries (16 GiB for a 1024³ grid), the padded construction keeps an
+analytic oracle at essentially the same normalization and, for α ≥ 1, the same
+register size.
+
 Scripts that reproduce the numerical results of
 
 > Y. Javanmard and S. Kazemian, *Boundary-Aware QFT Block-Encoding of Fractional
